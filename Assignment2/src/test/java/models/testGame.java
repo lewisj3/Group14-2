@@ -28,6 +28,7 @@ public class testGame {
         g.buildDeck();
         g.shuffle();
         assertNotEquals(2,g.deck.get(0).getValue());
+        assertNotNull(g.scoreBoard);
     }
 
     @Test
