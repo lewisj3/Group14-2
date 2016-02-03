@@ -22,40 +22,6 @@ public class Game {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    //I like space between my methods
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void buildDeck() {
         for(int i = 2; i < 15; i++){
             deck.add(new Card(i,Suit.Clubs));
@@ -64,31 +30,6 @@ public class Game {
             deck.add(new Card(i,Suit.Spades));
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-    //I like space between my methods
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public void shuffle() {
@@ -162,8 +103,6 @@ public class Game {
     private void removeCardFromCol(int colFrom) {
         this.cols.get(colFrom).remove(this.cols.get(colFrom).size()-1);
 
-        //I think that should conflict...
-        //Did it work yet?
 
     }
 }
