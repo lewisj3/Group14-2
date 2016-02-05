@@ -1,54 +1,115 @@
 tr{
-width:500px;
-}
-
-td{
-width:150px;
-height:20px;
-text-align:center;
-}
-
-.title{
-font-weight: bold;
-}
-
-.cardLocation{
-width: 150px;
-height: 25px;
-background-color:#F0F0F0;
-}
-
-body{
-background-color: lightblue;
+    width:500px;
 }
 
 h1{
-text-decoration: underline;
-margin-left: 5%;
+    text-align:center;
+}
+.moveButton{
+    font-size:15px;
+}
+
+td{
+    width:180px;
+    height:52px;
+    text-align:center;
+}
+.card{
+    position:absolute;
+}
+.card img{
+    width:150px;
+    position:absolute;
+}
+
+.title{
+    font-weight: bold;
+}
+
+
+body{
+    background-color: lightblue;
+}
+
+h1{
+    text-decoration: underline;
+    margin-left: 5%;
 }
 
 table{
-float: left;
-margin-left: 5%;
+    display:inline-block;
+    margin-left: 5%;
 }
 
 #dealButton, #playAgain{
-float: right;
-margin-right: 10%;
+    float: right;
+    margin-right: 10%;
 }
 
 #score{
-font-size: 25px;
-float: right;
-margin-right: 10%;
+    font-size: 25px;
+    float: right;
+    margin-right: 10%;
 }
 
 #lower{
-margin-top: 30%;
-margin-left: 5%;
+    margin-top: 30%;
+    margin-left: 5%;
 }
 
-#col1, #col2, #col3, #col4{
-margin-left: 8%;
-font-size: 15px;
+
+.cardLocation l0{
+    z-index: 0;
+}
+
+.cardLocation l1{
+    z-index: 1;
+}
+
+.cardLocation l2{
+z-index: 2;
+}
+
+.cardLocation l3{
+z-index: 3;
+}
+
+.cardLocation l4{
+z-index: 4;
+}
+
+.cardLocation l5{
+z-index: 5;
+}
+
+.cardLocation l6{
+z-index: 6;
+}
+
+.cardLocation l7{
+z-index: 7;
+}
+
+.cardLocation l8{
+z-index: 8;
+}
+
+.cardLocation l9{
+z-index: 9;
+}
+
+.cardLocation l10{
+z-index: 10;
+}
+
+.cardLocation l11{
+z-index: 11;
+}
+
+.cardLocation l12{
+z-index: 12;
+}
+
+.cardLocation l13{
+z-index: 13;
 }
