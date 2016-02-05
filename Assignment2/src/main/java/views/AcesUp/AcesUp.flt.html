@@ -136,6 +136,18 @@ $( '.columnOfCards .cardLocation' ).html("");
 
 }
 
+
+$("#playAgain").click(function(){
+    $("#Score").html("Score: 0");
+    $( '.columnOfCards .cardLocation' ).html("");
+    $.getJSON("http://localhost:8080/game", function( data ) {
+        display(data);
+        game = data;
+    });
+     console.log(game);
+});
+
+
 $.getJSON("http://localhost:8080/game", function( data ) {
 display(data);
 game = data;
