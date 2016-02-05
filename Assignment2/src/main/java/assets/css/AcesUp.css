@@ -32,8 +32,13 @@ float: left;
 margin-left: 5%;
 }
 
-#dealButton, #playAgain,p{
-font-size: 35px;
+#dealButton, #playAgain{
+float: right;
+margin-right: 10%;
+}
+
+#score{
+font-size: 25px;
 float: right;
 margin-right: 10%;
 }
@@ -43,3 +48,7 @@ margin-top: 30%;
 margin-left: 5%;
 }
 
+#col1, #col2, #col3, #col4{
+margin-left: 8%;
+font-size: 15px;
+}
