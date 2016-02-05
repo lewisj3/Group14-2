@@ -8,19 +8,17 @@ import java.util.Random;
  * Created by michaelhilton on 1/25/16.
  */
 public class Game {
-
     public java.util.List<Card> deck = new ArrayList<>();
-
     public java.util.List<java.util.List<Card>> cols = new ArrayList<>();
-
+    public ScoreBoard scoreBoard;
 
     public Game(){
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
+        scoreBoard = new ScoreBoard();
     }
-
 
     public void buildDeck() {
         for(int i = 2; i < 15; i++){
@@ -30,7 +28,6 @@ public class Game {
             deck.add(new Card(i,Suit.Spades));
         }
     }
-
 
     public void shuffle() {
         long seed = System.nanoTime();
@@ -56,10 +53,10 @@ public class Game {
         deck.remove(c4);
     }
 
-    public void remove(int columnNumber) {
+    public boolean remove(int columnNumber) {
+        boolean removeCard = false;
         if(colHasCards(columnNumber)) {
             Card c = getTopCard(columnNumber);
-            boolean removeCard = false;
             for (int i = 0; i < 4; i++) {
                 if (i != columnNumber) {
                     if (colHasCards(i)) {
@@ -76,6 +73,7 @@ public class Game {
                 this.cols.get(columnNumber).remove(this.cols.get(columnNumber).size() - 1);
             }
         }
+        return removeCard;
     }
 
     private boolean colHasCards(int colNumber) {
@@ -89,7 +87,6 @@ public class Game {
         return this.cols.get(columnNumber).get(this.cols.get(columnNumber).size()-1);
     }
 
-
     public void move(int colFrom, int colTo) {
         Card cardToMove = getTopCard(colFrom);
         this.removeCardFromCol(colFrom);
@@ -102,7 +99,5 @@ public class Game {
 
     private void removeCardFromCol(int colFrom) {
         this.cols.get(colFrom).remove(this.cols.get(colFrom).size()-1);
-
-
     }
 }

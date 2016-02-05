@@ -53,7 +53,9 @@ public class ApplicationController {
     }
 
     public Result removeCard(Context context, @PathParam("column") int colNumber, Game g){
-        g.remove(colNumber);
+        if(g.remove(colNumber)){
+            g.scoreBoard.addPoint();
+        }
         return  Results.json().render(g);
     }
 
