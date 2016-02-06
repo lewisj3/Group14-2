@@ -15,8 +15,8 @@
 
     <tr><td class="columnOfCards" id="c0">
         <table>
-            <tr><td class="cardLocation l0"></td></tr>
-            <tr><td class="cardLocation l1"></td></tr>
+            <tr><td class="cardLocation l0"><div class="card"><img src="/assets/cards/1s.png"></div></td></tr>
+            <tr><td class="cardLocation l1"><div class="card"><img src="/assets/cards/2d.png"></div></td></tr>
             <tr><td class="cardLocation l2"></td></tr>
             <tr><td class="cardLocation l3"></td></tr>
             <tr><td class="cardLocation l4"></td></tr>
@@ -29,6 +29,7 @@
             <tr><td class="cardLocation l11"></td></tr>
             <tr><td class="cardLocation l12"></td></tr>
             <tr><td class="cardLocation l13"></td></tr>
+            <tr><td><button class="moveButton">Move</button></td></tr>
         </table>
     </td>
         <td class="columnOfCards" id="c1">
@@ -47,6 +48,7 @@
                 <tr><td class="cardLocation l11"></td></tr>
                 <tr><td class="cardLocation l12"></td></tr>
                 <tr><td class="cardLocation l13"></td></tr>
+                <tr><td><button class="moveButton">Move</button></td></tr>
             </table>
         </td>
         <td class="columnOfCards" id="c2">
@@ -65,6 +67,7 @@
                 <tr><td class="cardLocation l11"></td></tr>
                 <tr><td class="cardLocation l12"></td></tr>
                 <tr><td class="cardLocation l13"></td></tr>
+                <tr><td><button class="moveButton">Move</button></td></tr>
             </table>
         </td>
         <td class="columnOfCards" id="c3">
@@ -83,15 +86,23 @@
                 <tr><td class="cardLocation l11"></td></tr>
                 <tr><td class="cardLocation l12"></td></tr>
                 <tr><td class="cardLocation l13"></td></tr>
+                <tr><td><button class="moveButton">Move</button></td></tr>
             </table>
         </td>
     </tr>
 </table>
+<input id="playAgain" type="image" src="assets/buttonImages/PlayAgain.png" width="120" height="70" alt="play">
 
-<button id="dealButton">Deal</button>
-<BR>Remove from: <button id="Remove1">Column1</button><button id="Remove2">Column2</button><button id="Remove3">Column3</button><button id="Remove4">Column4</button>
+<input id="dealButton" type="image" src="assets/buttonImages/DealButton.png" width="150" height="70" alt="deal">
 
-<BR>Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button>
+<div id="error">
+
+</div>
+<div id="lower">
+
+    <p id="Score">Score:  0</p>
+
+</div>
 
 <script>
 
@@ -103,24 +114,40 @@ console.log(game);
 $( '.columnOfCards .cardLocation' ).html("");
 
     $.each(game.cols[0], function( key, val ) {
-        $( '#c0 .l'+key ).html(val.value + val.suit);
+    var str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png'></div>";
+        $( '#c0 .l'+key ).html(str);
     });
 
  $.each(game.cols[1], function( key, val ) {
-        $( '#c1 .l'+key ).html(val.value + val.suit);
+        var str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png'></div>";
+        $( '#c1 .l'+key ).html(str);
     });
 
  $.each(game.cols[2], function( key, val ) {
-        $( '#c2 .l'+key ).html(val.value + val.suit);
+        var str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png'></div>";
+        $( '#c2 .l'+key ).html(str);
     });
 
  $.each(game.cols[3], function( key, val ) {
-        $( '#c3 .l'+key ).html(val.value + val.suit);
+        var str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png'></div>";
+        $( '#c3 .l'+key ).html(str);
     });
 
 
 
 }
+
+
+$("#playAgain").click(function(){
+    $("#Score").html("Score: 0");
+    $( '.columnOfCards .cardLocation' ).html("");
+    $.getJSON("http://localhost:8080/game", function( data ) {
+        display(data);
+        game = data;
+    });
+     console.log(game);
+});
+
 
 $.getJSON("http://localhost:8080/game", function( data ) {
 display(data);
