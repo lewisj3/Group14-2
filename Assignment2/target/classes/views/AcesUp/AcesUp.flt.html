@@ -29,6 +29,7 @@
             <tr><td class="cardLocation l11"></td></tr>
             <tr><td class="cardLocation l12"></td></tr>
             <tr><td class="cardLocation l13"></td></tr>
+            <tr><td><button id="col1">Move</button></td></tr>
         </table>
     </td>
         <td class="columnOfCards" id="c1">
@@ -47,6 +48,7 @@
                 <tr><td class="cardLocation l11"></td></tr>
                 <tr><td class="cardLocation l12"></td></tr>
                 <tr><td class="cardLocation l13"></td></tr>
+                <tr><td><button id="col2">Move</button></td></tr>
             </table>
         </td>
         <td class="columnOfCards" id="c2">
@@ -65,6 +67,7 @@
                 <tr><td class="cardLocation l11"></td></tr>
                 <tr><td class="cardLocation l12"></td></tr>
                 <tr><td class="cardLocation l13"></td></tr>
+                <tr><td><button id="col3">Move</button></td></tr>
             </table>
         </td>
         <td class="columnOfCards" id="c3">
@@ -83,21 +86,23 @@
                 <tr><td class="cardLocation l11"></td></tr>
                 <tr><td class="cardLocation l12"></td></tr>
                 <tr><td class="cardLocation l13"></td></tr>
+                <tr><td><button id="col4">Move</button></td></tr>
             </table>
         </td>
     </tr>
 </table>
+<input id="playAgain" type="image" src="assets/buttonImages/PlayAgain.png" width="120" height="70" alt="play">
 
-<button id="playAgain">Play Again</button>
-<br><br><br>
-<button id="dealButton">Deal</button>
+<br><br><br><br><br>
+<input id="dealButton" type="image" src="assets/buttonImages/DealButton.png" width="150" height="70" alt="deal">
 
+<div id="error">
+
+</div>
 <div id="lower">
 
-    <p id="Score">Score: 0</p>
-    <BR>Remove from: <button id="Remove1">Column0</button><button id="Remove2">Column1</button><button id="Remove3">Column2</button><button id="Remove4">Column3</button>
+    <p id="Score">Score:  0</p>
 
-    <BR>Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button>
 </div>
 
 <script>
@@ -129,10 +134,6 @@ $( '.columnOfCards .cardLocation' ).html("");
 
 }
 
-$.getJSON("http://localhost:8080/game", function( data ) {
-display(data);
-game = data;
-});
 
 $("#playAgain").click(function(){
     $("#Score").html("Score: 0");
@@ -143,6 +144,13 @@ $("#playAgain").click(function(){
     });
      console.log(game);
 });
+
+
+$.getJSON("http://localhost:8080/game", function( data ) {
+display(data);
+game = data;
+});
+
 
 $("#dealButton").click(function(){
 $.ajax({
