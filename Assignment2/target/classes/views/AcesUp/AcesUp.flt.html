@@ -5,37 +5,37 @@
 
 <body>
 
-<table>
-    <tr class="title">
-        <td>Column0</td>
-        <td >Column1</td>
-        <td >Column2</td>
-        <td >Column3</td>
+<button class="" id="playAgain" type="image" width="120" height="70">Play Again</button>
+
+<div id="gameTable">
+    <table>
+
+    <tr>
+        <td><button class="moveButton" id="b0" onclick="moveHere(0)">Move to Here</button></td>
+        <td><button class="moveButton" id="b1" onclick="moveHere(1)">Move to Here</button></td>
+        <td><button class="moveButton" id="b2" onclick="moveHere(2)">Move to Here</button></td>
+        <td><button class="moveButton" id="b3" onclick="moveHere(3)">Move to Here</button></td>
     </tr>
 
-    <tr><td class="columnOfCards" id="c0">
-        <table>
-            <tr><td class="cardLocation l0"><div class="card"><img src="/assets/cards/1s.png"></div></td></tr>
-            <tr><td class="cardLocation l1"><div class="card"><img src="/assets/cards/2d.png"></div></td></tr>
-            <tr><td class="cardLocation l2"></td></tr>
-            <tr><td class="cardLocation l3"></td></tr>
-            <tr><td class="cardLocation l4"></td></tr>
-            <tr><td class="cardLocation l5"></td></tr>
-            <tr><td class="cardLocation l6"></td></tr>
-            <tr><td class="cardLocation l7"></td></tr>
-            <tr><td class="cardLocation l8"></td></tr>
-            <tr><td class="cardLocation l9"></td></tr>
-            <tr><td class="cardLocation l10"></td></tr>
-            <tr><td class="cardLocation l11"></td></tr>
-            <tr><td class="cardLocation l12"></td></tr>
-            <tr><td class="cardLocation l13"></td></tr>
-<<<<<<< HEAD
-            <tr><td><button id="col1">Move</button></td></tr>
-=======
-            <tr><td><button class="moveButton">Move</button></td></tr>
->>>>>>> DisplayCards
-        </table>
-    </td>
+    <tr>
+        <td class="columnOfCards" id="c0">
+            <table>
+                <tr><td class="cardLocation l0"></td></tr>
+                <tr><td class="cardLocation l1"></td></tr>
+                <tr><td class="cardLocation l2"></td></tr>
+                <tr><td class="cardLocation l3"></td></tr>
+                <tr><td class="cardLocation l4"></td></tr>
+                <tr><td class="cardLocation l5"></td></tr>
+                <tr><td class="cardLocation l6"></td></tr>
+                <tr><td class="cardLocation l7"></td></tr>
+                <tr><td class="cardLocation l8"></td></tr>
+                <tr><td class="cardLocation l9"></td></tr>
+                <tr><td class="cardLocation l10"></td></tr>
+                <tr><td class="cardLocation l11"></td></tr>
+                <tr><td class="cardLocation l12"></td></tr>
+                <tr><td class="cardLocation l13"></td></tr>
+            </table>
+        </td>
         <td class="columnOfCards" id="c1">
             <table>
                 <tr><td class="cardLocation l0"></td></tr>
@@ -52,11 +52,6 @@
                 <tr><td class="cardLocation l11"></td></tr>
                 <tr><td class="cardLocation l12"></td></tr>
                 <tr><td class="cardLocation l13"></td></tr>
-<<<<<<< HEAD
-                <tr><td><button id="col2">Move</button></td></tr>
-=======
-                <tr><td><button class="moveButton">Move</button></td></tr>
->>>>>>> DisplayCards
             </table>
         </td>
         <td class="columnOfCards" id="c2">
@@ -75,11 +70,6 @@
                 <tr><td class="cardLocation l11"></td></tr>
                 <tr><td class="cardLocation l12"></td></tr>
                 <tr><td class="cardLocation l13"></td></tr>
-<<<<<<< HEAD
-                <tr><td><button id="col3">Move</button></td></tr>
-=======
-                <tr><td><button class="moveButton">Move</button></td></tr>
->>>>>>> DisplayCards
             </table>
         </td>
         <td class="columnOfCards" id="c3">
@@ -98,22 +88,13 @@
                 <tr><td class="cardLocation l11"></td></tr>
                 <tr><td class="cardLocation l12"></td></tr>
                 <tr><td class="cardLocation l13"></td></tr>
-<<<<<<< HEAD
-                <tr><td><button id="col4">Move</button></td></tr>
-=======
-                <tr><td><button class="moveButton">Move</button></td></tr>
->>>>>>> DisplayCards
             </table>
         </td>
     </tr>
-</table>
-<input id="playAgain" type="image" src="assets/buttonImages/PlayAgain.png" width="120" height="70" alt="play">
+    </table>
+    </div>
 
-<<<<<<< HEAD
-<br><br><br><br><br>
-=======
->>>>>>> DisplayCards
-<input id="dealButton" type="image" src="assets/buttonImages/DealButton.png" width="150" height="70" alt="deal">
+<button id="dealButton" type="image" width="150" height="70">Deal</button>
 
 <div id="error">
 
@@ -121,7 +102,7 @@
 <div id="lower">
 
     <p id="Score">Score:  0</p>
-
+    <p><label id="prompt"></label><label id="colNum"></label></p>
 </div>
 
 <script>
@@ -129,32 +110,22 @@
 var game;
 
 function display(game) {
-console.log(game);
-
-$( '.columnOfCards .cardLocation' ).html("");
-
-    $.each(game.cols[0], function( key, val ) {
-    var str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png'></div>";
-        $( '#c0 .l'+key ).html(str);
-    });
-
- $.each(game.cols[1], function( key, val ) {
-        var str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png'></div>";
-        $( '#c1 .l'+key ).html(str);
-    });
-
- $.each(game.cols[2], function( key, val ) {
-        var str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png'></div>";
-        $( '#c2 .l'+key ).html(str);
-    });
-
- $.each(game.cols[3], function( key, val ) {
-        var str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png'></div>";
-        $( '#c3 .l'+key ).html(str);
-    });
-
-
-
+    $( '.columnOfCards .cardLocation' ).html("");
+    var indexOflastCard = -1;
+    var str = "";
+    for(var i = 0; i<4; i++){
+        indexOflastCard = game.cols[i].length-1;
+        $.each(game.cols[i], function( key, val ) {
+            str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png'></div>";
+            $( '#c'+i+' .l'+key ).html(str);
+            if(key == indexOflastCard){
+                str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png' onclick='removeCard("+i+")'></div>";
+            }
+            $( '#c'+i+' .l'+key ).html(str);
+        });
+    }
+    var score = document.getElementById("Score");
+    score.innerHTML = "Score: " + game.scoreBoard.score;
 }
 
 
@@ -170,67 +141,109 @@ $("#playAgain").click(function(){
 
 
 $.getJSON("http://localhost:8080/game", function( data ) {
-display(data);
-game = data;
+    display(data);
+    game = data;
 });
 
 
 $("#dealButton").click(function(){
-$.ajax({
-  type: "POST",
-  url: "/dealGame",
-  data: JSON.stringify(game),
-  success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
-        game = data;
-        display(data);},
-  contentType:"application/json; charset=utf-8",
-  dataType:"json",
-});
+    $.ajax({
+      type: "POST",
+      url: "/dealGame",
+      data: JSON.stringify(game),
+      success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+            game = data;
+            display(data);},
+      contentType:"application/json; charset=utf-8",
+      dataType:"json",
+    });
 });
 
 
 function removeCard(colNumber){
-$.ajax({
-type: "POST",
-url: "/removeCard/"+colNumber,
-data: JSON.stringify(game),
-success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
-game = data;
-display(data);},
-contentType:"application/json; charset=utf-8",
-dataType:"json",
-});
-
-}
-
-
-$("#Remove1").click(function(){
-    removeCard(0);
-});
-$("#Remove2").click(function(){
-    removeCard(1);
-});
-$("#Remove3").click(function(){
-    removeCard(2);
-});
-$("#Remove4").click(function(){
-    removeCard(3);
-});
-
-
-$("#moveButton").click(function(){
-var colFrom = $("#from_col").val();
-var colTo = $("#to_col").val();
-$.ajax({
-  type: "POST",
-  url: "/moveCard/"+colFrom+"/"+colTo,
-  data: JSON.stringify(game),
-  success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+    $.ajax({
+        type: "POST",
+        url: "/removeCard/"+colNumber,
+        data: JSON.stringify(game),
+        success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
         game = data;
         display(data);},
-  contentType:"application/json; charset=utf-8",
-  dataType:"json",
-});
+        contentType:"application/json; charset=utf-8",
+        dataType:"json",
+    });
+}
+
+function moveHere(column){
+
+    if(document.getElementById("prompt").innerHTML == "Select a card to move to column: "){
+        //user clicks on column to move
+
+        //move card to column
+        var colFrom = column;
+        var colTo = document.getElementById("colNum").innerHTML;
+        colTo = colTo - 1;
+        if(colFrom == colTo){
+            //move cancelled
+            document.getElementById("prompt").innerHTML = "Move cancelled.";
+            document.getElementById("colNum").innerHTML = "";
+            for(i = 0; i < 4; i++){
+                bId = "b" + i;
+                document.getElementById(bId).innerHTML = "Move to Here";
+            }
+            bId = "b" + column;
+            document.getElementById(bId).innerHTML = "Move to Here";
+
+        }else{
+            $.ajax({
+                type: "POST",
+                url: "/moveCard/"+colFrom+"/"+colTo,
+                data: JSON.stringify(game),
+                success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+                    game = data;
+                    display(data);},
+                contentType:"application/json; charset=utf-8",
+                dataType:"json",
+            });
+
+            for(i = 0; i < 4; i++){
+                bId = "b" + i;
+                document.getElementById(bId).innerHTML = "Move to Here";
+            }
+            document.getElementById("prompt").innerHTML = "Card moved.";
+            document.getElementById("colNum").innerHTML = "";
+        }
+    }else{
+        //user clicks on column
+        //prompt user
+        document.getElementById("prompt").innerHTML = "Select a card to move to column: ";
+        bId = "b" + column;
+        document.getElementById(bId).innerHTML = "Click to Cancel";
+
+        for(i = 0; i < 4; i++){
+            testId = "b" + i;
+            if(document.getElementById(testId).innerHTML == "Move to Here"){
+                document.getElementById(testId).innerHTML = "Move From Here";
+            }
+        }
+        column = column + 1;
+        document.getElementById("colNum").innerHTML = column;
+        //now in move mode
+    }
+}
+
+$("#moveButton").click(function(){
+    var colFrom = $("#from_col").val();
+    var colTo = $("#to_col").val();
+    $.ajax({
+        type: "POST",
+        url: "/moveCard/"+colFrom+"/"+colTo,
+        data: JSON.stringify(game),
+        success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+            game = data;
+            display(data);},
+        contentType:"application/json; charset=utf-8",
+        dataType:"json",
+    });
 });
 
 

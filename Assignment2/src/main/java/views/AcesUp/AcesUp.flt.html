@@ -5,19 +5,16 @@
 
 <body>
 
-<table>
-    <tr class="title">
-        <td>Column1</td>
-        <td>Column2</td>
-        <td>Column3</td>
-        <td>Column4</td>
-    </tr>
+<button class="" id="playAgain" type="image" width="120" height="70">Play Again</button>
+
+<div id="gameTable">
+    <table>
 
     <tr>
-        <td><button id="b0" onclick="moveHere(0)">Move to Here</button></td>
-        <td><button id="b1" onclick="moveHere(1)">Move to Here</button></td>
-        <td><button id="b2" onclick="moveHere(2)">Move to Here</button></td>
-        <td><button id="b3" onclick="moveHere(3)">Move to Here</button></td>
+        <td><button class="moveButton" id="b0" onclick="moveHere(0)">Move to Here</button></td>
+        <td><button class="moveButton" id="b1" onclick="moveHere(1)">Move to Here</button></td>
+        <td><button class="moveButton" id="b2" onclick="moveHere(2)">Move to Here</button></td>
+        <td><button class="moveButton" id="b3" onclick="moveHere(3)">Move to Here</button></td>
     </tr>
 
     <tr>
@@ -37,7 +34,6 @@
                 <tr><td class="cardLocation l11"></td></tr>
                 <tr><td class="cardLocation l12"></td></tr>
                 <tr><td class="cardLocation l13"></td></tr>
-                <tr><td><button class="moveButton">Move</button></td></tr>
             </table>
         </td>
         <td class="columnOfCards" id="c1">
@@ -56,7 +52,6 @@
                 <tr><td class="cardLocation l11"></td></tr>
                 <tr><td class="cardLocation l12"></td></tr>
                 <tr><td class="cardLocation l13"></td></tr>
-                <tr><td><button class="moveButton">Move</button></td></tr>
             </table>
         </td>
         <td class="columnOfCards" id="c2">
@@ -75,7 +70,6 @@
                 <tr><td class="cardLocation l11"></td></tr>
                 <tr><td class="cardLocation l12"></td></tr>
                 <tr><td class="cardLocation l13"></td></tr>
-                <tr><td><button class="moveButton">Move</button></td></tr>
             </table>
         </td>
         <td class="columnOfCards" id="c3">
@@ -94,14 +88,13 @@
                 <tr><td class="cardLocation l11"></td></tr>
                 <tr><td class="cardLocation l12"></td></tr>
                 <tr><td class="cardLocation l13"></td></tr>
-                <tr><td><button class="moveButton">Move</button></td></tr>
             </table>
         </td>
     </tr>
-</table>
-<input id="playAgain" type="image" src="assets/buttonImages/PlayAgain.png" width="120" height="70" alt="play">
+    </table>
+    </div>
 
-<input id="dealButton" type="image" src="assets/buttonImages/DealButton.png" width="150" height="70" alt="deal">
+<button id="dealButton" type="image" width="150" height="70">Deal</button>
 
 <div id="error">
 
@@ -109,11 +102,8 @@
 <div id="lower">
 
     <p id="Score">Score:  0</p>
-
+    <p><label id="prompt"></label><label id="colNum"></label></p>
 </div>
-
-<br>
-<label id="prompt"></label><label id="colNum"></label>
 
 <script>
 

@@ -1,3 +1,19 @@
+body{
+text-align:center;
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.07, #00C400),
+	color-stop(1, #005700)
+);
+background-image: -o-linear-gradient(top, #00C400 7%, #005700 100%);
+background-image: -moz-linear-gradient(top, #00C400 7%, #005700 100%);
+background-image: -webkit-linear-gradient(top, #00C400 7%, #005700 100%);
+background-image: -ms-linear-gradient(top, #00C400 7%, #005700 100%);
+background-image: linear-gradient(to top, #00C400 7%, #005700 100%);
+}
+
 tr{
     width:500px;
 }
@@ -5,12 +21,50 @@ tr{
 h1{
     text-align:center;
 }
+
+button{
+    border-radius: 12px;
+    color:white;
+    background-color: green;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+#gameTable{
+    text-align:center;
+    display:inline-block;
+}
 .moveButton{
-    font-size:15px;
-    position:relative;
-    top:120px;
+    border:none;
+    padding: 20px;
+    border-radius: 5px;
 }
 
+#playAgain{
+    display:inline-block;
+    background-color: red;
+    padding: 30px 20px;
+    vertical-align:top;
+}
+#dealButton{
+    display:inline-block;
+    background-color: blue;
+    padding: 30px; 20px;
+    vertical-align:top;
+}
+
+#prompt{
+    font-size: 30;
+    font-weight: bold;
+    text-align:center;
+    float:left;
+}
+
+#colNum{
+    font-size: 30;
+    font-weight: bold;
+    float:left;
+}
 td{
     width:140px;
     height:40px;
@@ -29,36 +83,16 @@ td{
 }
 
 
-body{
-    background-color: lightblue;
-}
-
 h1{
     text-decoration: underline;
     margin-left: 5%;
 }
 
-table{
-    display:inline-block;
-    margin-left: 5%;
-}
-
-#dealButton, #playAgain{
-    float: right;
-    margin-right: 10%;
-}
-
 #score{
-    font-size: 25px;
-    float: right;
-    margin-right: 10%;
+    font-size: 30;
+    font-weight: bold;
+    text-align:right;
 }
-
-#lower{
-    margin-top: 30%;
-    margin-left: 5%;
-}
-
 
 .cardLocation l0{
     z-index: 0;
