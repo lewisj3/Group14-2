@@ -107,19 +107,56 @@
 
 <script>
 
+function getUrlVars() {
+var vars = {};
+var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+vars[key] = value;
+});
+return vars;
+}
+
+var tempURL = "";
 var game;
+if(getUrlVars()["Standard"] == "true"){
+var standard = true;
+tempURL = "http://localhost:8080/standardGame";
+} else {
+var standard = false;
+tempURL = "http://localhost:8080/spanishGame";
+}
+
+$.getJSON(tempURL, function( data ) {
+    display(data);
+    game = data;
+});
 
 function display(game) {
+
     $( '.columnOfCards .cardLocation' ).html("");
     var indexOflastCard = -1;
-    var str = "";
+    if(standard == true){
+        var str = "<div class='card'><img src='/assets/cards/";
+    }
+    else{
+        var str = "";
+    }
     for(var i = 0; i<4; i++){
         indexOflastCard = game.cols[i].length-1;
         $.each(game.cols[i], function( key, val ) {
-            str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png'></div>";
+            if(standard){
+            str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png' onclick='removeCard("+i+")'></div>";
+
+            } else{
+            str = "<div class='card'><img src='/assets/SpanishCards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png' onclick='removeCard("+i+")'></div>";
+            }
             $( '#c'+i+' .l'+key ).html(str);
             if(key == indexOflastCard){
-                str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png' onclick='removeCard("+i+")'></div>";
+                if(standard){
+                    str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png' onclick='removeCard("+i+")'></div>";
+                }else{
+                str = "<div class='card'><img src='/assets/SpanishCards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png' onclick='removeCard("+i+")'></div>";
+
+                }
             }
             $( '#c'+i+' .l'+key ).html(str);
         });
@@ -132,7 +169,7 @@ function display(game) {
 $("#playAgain").click(function(){
     $("#Score").html("Score: 0");
     $( '.columnOfCards .cardLocation' ).html("");
-    $.getJSON("http://localhost:8080/game", function( data ) {
+    $.getJSON(tempURL, function( data ) {
         display(data);
         game = data;
     });
@@ -140,10 +177,6 @@ $("#playAgain").click(function(){
 });
 
 
-$.getJSON("http://localhost:8080/game", function( data ) {
-    display(data);
-    game = data;
-});
 
 
 $("#dealButton").click(function(){
