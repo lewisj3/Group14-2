@@ -35,6 +35,10 @@ public class ApplicationController {
     public Result acesUp() {
         return Results.html().template("views/AcesUp/AcesUp.flt.html");
     }
+
+    public Result menu() {
+        return Results.html().template("views/Menu/Menu.flt.html");
+    }
     
     public Result gameGet(){
         Game g = new Game();
