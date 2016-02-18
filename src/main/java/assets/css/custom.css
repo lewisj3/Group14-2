@@ -1,3 +1,10 @@
 /* Add additional stylesheets below
 -------------------------------------------------- */
 
+.deckselect{
+    width: 200px;
+    background-color: rgb(180,200,200);
+    float: left;
+    padding: 10px;
+
+}
