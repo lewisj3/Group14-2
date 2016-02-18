@@ -39,7 +39,7 @@ public class ApplicationController {
     }
 
     public Result menu() {
-        return Results.html().template("views/Menu/Menu.flt.html");
+        return Results.html().template("views/AcesUp/Menu.flt.html");
     }
     
     public Result standardGet(){
