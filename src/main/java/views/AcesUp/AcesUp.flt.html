@@ -180,9 +180,11 @@ $("#playAgain").click(function(){
 
 
 $("#dealButton").click(function(){
+    url1 = "/dealGame?standard=true";
+    url2 = "/dealGame?standard=false";
     $.ajax({
       type: "POST",
-      url: "/dealGame",
+      url: (standard) ? url1 : url2,
       data: JSON.stringify(game),
       success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
             game = data;
@@ -191,6 +193,7 @@ $("#dealButton").click(function(){
       dataType:"json",
     });
 });
+
 
 
 function removeCard(colNumber){
