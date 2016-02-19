@@ -180,11 +180,11 @@ $("#playAgain").click(function(){
 
 
 $("#dealButton").click(function(){
-    url1 = "/dealGame?standard=true";
-    url2 = "/dealGame?standard=false";
+    standardURL = "/dealStandard";
+    spanishURL = "/dealSpanish";
     $.ajax({
       type: "POST",
-      url: (standard) ? url1 : url2,
+      url: (standard) ? standardURL : spanishURL,
       data: JSON.stringify(game),
       success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
             game = data;
@@ -197,9 +197,11 @@ $("#dealButton").click(function(){
 
 
 function removeCard(colNumber){
+    standardURL = "/removeStandardCard/"+colNumber;
+    spanishURL = "/removeSpanishCard/"+colNumber;
     $.ajax({
         type: "POST",
-        url: "/removeCard/"+colNumber,
+        url: (standard) ? standardURL : spanishURL,
         data: JSON.stringify(game),
         success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
         game = data;
@@ -230,9 +232,11 @@ function moveHere(column){
             document.getElementById(bId).innerHTML = "Move to Here";
 
         }else{
+            standardURL = "/moveStandardCard/"+colFrom+"/"+colTo;
+            spanishURL = "/moveSpanishCard/"+colFrom+"/"+colTo;
             $.ajax({
                 type: "POST",
-                url: "/moveCard/"+colFrom+"/"+colTo,
+                url: (standard) ? standardURL : spanishURL,
                 data: JSON.stringify(game),
                 success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
                     game = data;
@@ -270,9 +274,11 @@ function moveHere(column){
 $("#moveButton").click(function(){
     var colFrom = $("#from_col").val();
     var colTo = $("#to_col").val();
+    standardURL = "/moveStandardCard/"+colFrom+"/"+colTo;
+    spanishURL = "/moveSpanishCard/"+colFrom+"/"+colTo;
     $.ajax({
         type: "POST",
-        url: "/moveCard/"+colFrom+"/"+colTo,
+        url: (standard) ? standardURL : spanishURL,
         data: JSON.stringify(game),
         success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
             game = data;

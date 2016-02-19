@@ -59,22 +59,40 @@ public class ApplicationController {
         return Results.json().render(g);
     }
 
-    public Result dealPost(Context context, Game g) {
-        if(context.getRequestPath().contains("deal")){
+    public Result dealStandard(Context context, StandardGame g) {
+        if (context.getRequestPath().contains("deal")) {
             g.dealFour();
         }
         return Results.json().render(g);
     }
 
+    public Result dealSpanish(Context context, SpanishGame g) {
+        if (context.getRequestPath().contains("deal")) {
+            g.dealFour();
+        }
+        return Results.json().render(g);
+    }
 
-    public Result removeCard(Context context, @PathParam("column") int colNumber, Game g){
+    public Result removeStandardCard(Context context, @PathParam("column") int colNumber, StandardGame g){
         if(g.remove(colNumber)){
             g.scoreBoard.addPoint();
         }
         return  Results.json().render(g);
     }
 
-    public Result moveCard(Context context, @PathParam("columnFrom") int colFrom, @PathParam("columnTo") int colTo, Game g){
+    public Result removeSpanishCard(Context context, @PathParam("column") int colNumber, SpanishGame g){
+        if(g.remove(colNumber)){
+            g.scoreBoard.addPoint();
+        }
+        return  Results.json().render(g);
+    }
+
+    public Result moveStandardCard(Context context, @PathParam("columnFrom") int colFrom, @PathParam("columnTo") int colTo, StandardGame g){
+        g.move(colFrom,colTo);
+        return  Results.json().render(g);
+    }
+
+    public Result moveSpanishCard(Context context, @PathParam("columnFrom") int colFrom, @PathParam("columnTo") int colTo, SpanishGame g){
         g.move(colFrom,colTo);
         return  Results.json().render(g);
     }
