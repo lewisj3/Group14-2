@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * Created by michaelhilton on 1/25/16.
  */
-public class Game {
+public abstract class Game {
     public java.util.List<Card> deck = new ArrayList<>();
     public java.util.List<java.util.List<Card>> cols = new ArrayList<>();
     public ScoreBoard scoreBoard;
@@ -20,14 +20,7 @@ public class Game {
         scoreBoard = new ScoreBoard();
     }
 
-    public void buildDeck() {
-        for(int i = 2; i < 15; i++){
-            deck.add(new Card(i,Suit.Clubs));
-            deck.add(new Card(i,Suit.Hearts));
-            deck.add(new Card(i,Suit.Diamonds));
-            deck.add(new Card(i,Suit.Spades));
-        }
-    }
+    abstract public void buildDeck();
 
     public void shuffle() {
         long seed = System.nanoTime();

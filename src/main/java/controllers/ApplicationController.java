@@ -17,6 +17,8 @@
 package controllers;
 
 import models.Game;
+import models.SpanishGame;
+import models.StandardGame;
 import ninja.Context;
 import ninja.Result;
 import ninja.Results;
@@ -37,11 +39,19 @@ public class ApplicationController {
     }
 
     public Result menu() {
-        return Results.html().template("views/Menu/Menu.flt.html");
+        return Results.html().template("views/AcesUp/Menu.flt.html");
     }
     
-    public Result gameGet(){
-        Game g = new Game();
+    public Result standardGet(){
+        StandardGame g = new StandardGame();
+        g.buildDeck();
+        g.shuffle();
+        g.dealFour();
+
+        return Results.json().render(g);
+    }
+    public Result spanishGet(){
+        SpanishGame g = new SpanishGame();
         g.buildDeck();
         g.shuffle();
         g.dealFour();
@@ -55,6 +65,7 @@ public class ApplicationController {
         }
         return Results.json().render(g);
     }
+
 
     public Result removeCard(Context context, @PathParam("column") int colNumber, Game g){
         if(g.remove(colNumber)){
