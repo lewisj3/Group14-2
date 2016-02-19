@@ -1,7 +1,7 @@
 package models;
 
 /**
- * Created by Jacob on 2/16/2016.
+ * Created by grejucv on 2/16/2016.
  */
 public class StandardGame extends Game{
 
