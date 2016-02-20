@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by lewisj3 on 2/16/16.
+ * Created by grejucv on 2/16/16.
  */
 public class testSpanishGame {
 
@@ -49,10 +49,10 @@ public class testSpanishGame {
         g.buildDeck();
         g.customDeal(0,3,6,9);
         System.out.println("Custom Deal: " + g.cols.get(0).get(0).toString() + " " + g.cols.get(1).get(0).toString() + " " + g.cols.get(2).get(0).toString() + " "+ g.cols.get(3).get(0).toString());
-        assertEquals("2Clubs",g.cols.get(0).get(0).toString());
-        assertEquals("3Clubs",g.cols.get(1).get(0).toString());
-        assertEquals("4Clubs",g.cols.get(2).get(0).toString());
-        assertEquals("5Clubs",g.cols.get(3).get(0).toString());
+        assertEquals("1Coins",g.cols.get(0).get(0).toString());
+        assertEquals("2Coins",g.cols.get(1).get(0).toString());
+        assertEquals("3Coins",g.cols.get(2).get(0).toString());
+        assertEquals("4Coins",g.cols.get(3).get(0).toString());
     }
 
     @Test
@@ -64,6 +64,13 @@ public class testSpanishGame {
         assertEquals(0,g.cols.get(2).size());
     }
 
-
+    @Test
+    public void testMove(){
+        SpanishGame g = new SpanishGame();
+        g.buildDeck();
+        g.customDeal(0,3,6,9);
+        g.move(1,2);
+        assertEquals("1Coins",g.cols.get(0).get(0).toString());
+    }
 
 }
