@@ -144,17 +144,17 @@ function display(game) {
         indexOflastCard = game.cols[i].length-1;
         $.each(game.cols[i], function( key, val ) {
             if(standard){
-            str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png' onclick='removeCard("+i+")'></div>";
+            str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit + ".png' onclick='removeCard("+i+")'></div>";
 
             } else{
-            str = "<div class='card'><img src='/assets/SpanishCards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png' onclick='removeCard("+i+")'></div>";
+            str = "<div class='card'><img src='/assets/SpanishCards/" + val.value + val.suit + ".png' onclick='removeCard("+i+")'></div>";
             }
             $( '#c'+i+' .l'+key ).html(str);
             if(key == indexOflastCard){
                 if(standard){
-                    str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png' onclick='removeCard("+i+")'></div>";
+                    str = "<div class='card'><img src='/assets/cards/" + val.value + val.suit + ".png' onclick='removeCard("+i+")'></div>";
                 }else{
-                str = "<div class='card'><img src='/assets/SpanishCards/" + val.value + val.suit.charAt(0).toLowerCase() + ".png' onclick='removeCard("+i+")'></div>";
+                str = "<div class='card'><img src='/assets/SpanishCards/" + val.value + val.suit + ".png' onclick='removeCard("+i+")'></div>";
 
                 }
             }

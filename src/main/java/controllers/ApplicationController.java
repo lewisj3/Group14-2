@@ -96,5 +96,4 @@ public class ApplicationController {
         g.move(colFrom,colTo);
         return  Results.json().render(g);
     }
-
 }
