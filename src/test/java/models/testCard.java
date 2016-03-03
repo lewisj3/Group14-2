@@ -21,7 +21,7 @@ public class testCard {
     }
 
     @Test
-    public void testMoveCard(){
+    public void testMoveCardWhenAble(){
         StandardGame g = new StandardGame();
         g.buildDeck();
         g.customDeal(0,3,6,9);
@@ -32,5 +32,19 @@ public class testCard {
         assertEquals(0,g.cols.get(0).size());
     }
 
-
+    @Test
+    public void testMoveCardWhenUnable() {
+        StandardGame g = new StandardGame();
+        g.buildDeck();
+        g.customDeal(0, 3, 6, 9);
+        assertEquals(1, g.cols.get(0).size());
+        assertEquals(1, g.cols.get(1).size());
+        assertEquals(1, g.cols.get(2).size());
+        assertEquals(1, g.cols.get(3).size());
+        g.move(0, 2);
+        assertEquals(1, g.cols.get(0).size());
+        assertEquals(1, g.cols.get(1).size());
+        assertEquals(1, g.cols.get(2).size());
+        assertEquals(1, g.cols.get(3).size());
+    }
 }

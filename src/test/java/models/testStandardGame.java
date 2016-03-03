@@ -63,6 +63,13 @@ public class testStandardGame {
         assertEquals(0,g.cols.get(2).size());
     }
 
-
+    @Test
+    public void testMove(){
+        StandardGame g = new StandardGame();
+        g.buildDeck();
+        g.customDeal(0,3,6,9);
+        g.move(1,2);
+        assertEquals("2Clubs",g.cols.get(0).get(0).toString());
+    }
 
 }
